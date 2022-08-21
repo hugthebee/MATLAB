@@ -26,11 +26,13 @@ xt = 2*cos(2*pi*time_grid) + cos(6*pi*time_grid);
 %----- part c-------%
 % MAXIMUM ABSOLUTE ERROR
 mae = 0;
+e = 0;
 for k = 1:101
-    mae = mae + abs(xt(k) - F(k));
+    e = abs(xt(k) - F(k));
+    if(mae < e)
+        mae = e;
+    end
 end
-
-mae = mae/101;
 disp(mae);
 
 % ROOT MEAN SQUARE
